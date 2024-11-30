@@ -1,10 +1,8 @@
 #ifndef WAVELET_H
 #define WAVELET_H
 
-#include <iostream>
 #include <vector>
 #include <complex>
-#include <list>
 
 class Wavelet {
 
