@@ -1,7 +1,5 @@
-#include <complex>
-
 #include "lab7.h"
-#include "lab6.h" //FFT в conv()
+#include "lab6.h" //FFT Гў conv()
 
 Wavelet::Wavelet(int n, int s, int T) : N{ n }, Stages{ s },  PI { 3.1415926535897932 } {
 
@@ -183,7 +181,7 @@ std::vector<std::complex<double>> Wavelet::U(int l, std::vector<std::complex<dou
 	std::vector<std::complex<double>> result;
 	
 	int temp = static_cast<int>(std::pow(2, l));
-	//если делится на 2^l //U(z)(n)
+	//ГҐГ±Г«ГЁ Г¤ГҐГ«ГЁГІГ±Гї Г­Г  2^l //U(z)(n)
 	int n = vec.size() * temp;
 
 	for (int i = 0; i < n; i++) {
@@ -241,7 +239,7 @@ std::complex<double> Wavelet::scalar(std::vector<std::complex<double>> vec, std:
 }
 
 void Wavelet::analysis(std::vector<std::complex<double>> z, int stage, std::vector<std::complex<double>>& PHI, std::vector<std::complex<double>>& PSI) {
-//вариант с psi/phi вместо shift(f/g, k)
+//ГўГ Г°ГЁГ Г­ГІ Г± psi/phi ГўГ¬ГҐГ±ГІГ® shift(f/g, k)
 	int basis_n = u.size() / static_cast<int>(std::pow(2, stage));
 
 	for (int i = 0; i < basis_n; i++) {
@@ -293,8 +291,8 @@ void Wavelet::synthesis_first(std::vector<std::complex<double>>& z, std::vector<
 
 void Wavelet::synthesis_second(std::vector<std::complex<double>>& z, std::vector<std::complex<double>>& P_prev, std::vector<std::complex<double>>& PSI) {
 
-	//т.к. P-j+1 = P-j + Q-j и P-j - это z_rec
-	//чтобы вместо phi_k и phi брала z_rec с предыдущего этапа
+	//ГІ.ГЄ. P-j+1 = P-j + Q-j ГЁ P-j - ГЅГІГ® z_rec
+	//Г·ГІГ®ГЎГ» ГўГ¬ГҐГ±ГІГ® phi_k ГЁ phi ГЎГ°Г Г«Г  z_rec Г± ГЇГ°ГҐГ¤Г»Г¤ГіГ№ГҐГЈГ® ГЅГІГ ГЇГ 
 
 	std::vector<std::complex<double>> P = P_prev;
 
