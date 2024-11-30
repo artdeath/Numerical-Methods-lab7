@@ -1,5 +1,5 @@
 #include "lab7.h"
-#include "iomanip"
+#include <iostream>
 #include <fstream>
 
 int main() {
@@ -62,7 +62,7 @@ int main() {
 
 	std::vector<std::complex<double>> z_rec2;
 
-	s2.synthesis_second(z_rec2, z_rec, psik2); //z_rec вместо phik2
+	s2.synthesis_second(z_rec2, z_rec, psik2); //z_rec ГўГ¬ГҐГ±ГІГ® phik2
 
 	for (int i = 0; i < z.size(); i++) {
 		ofs << z_rec2[i].real() << std::endl;
